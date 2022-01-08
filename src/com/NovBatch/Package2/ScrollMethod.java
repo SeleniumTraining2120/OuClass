@@ -26,8 +26,10 @@ public class ScrollMethod {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		driver.get("https://www.toolsqa.com/selenium-webdriver/window-handle-in-selenium/");			
-		Thread.sleep(3000);				
-		JavascriptExecutor js = (JavascriptExecutor)driver;		
+		Thread.sleep(3000);		
+		
+		JavascriptExecutor js = ((JavascriptExecutor)driver);	
+		
 		js.executeScript("window.scrollBy(0,3000)", "");		
 		WebElement scrollToElement = driver.findElement(By.xpath(prop.getProperty("toolsText_xpath")));		
 		js.executeScript("arguments[0].scrollIntoView();", scrollToElement);
